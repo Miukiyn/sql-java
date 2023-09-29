@@ -1,0 +1,82 @@
+section{
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#returnButton{
+    background-color: var(--secondary_color);
+    font-size: 24px;
+    position: absolute;
+    top: 5%;
+    left: 0px;
+    padding: 4px 16px;
+    border-radius: 0px 100px 100px 0px;
+}
+
+#heroImage1{
+    display: block;
+    width: 100%;
+    min-width: 400px;
+    height: auto;
+    min-height: 100%;
+    top: 0px;
+    position: absolute;
+    z-index: -1;    
+}
+
+#heroImage2{
+    display: none;
+    width: 100%;
+    min-width: 1366px;
+    height: auto;
+    min-height: 100%;
+    top: 0px;
+    position: absolute;
+    z-index: -1;
+}
+
+#signUpForm{
+    background-color: rgba(226 , 204, 146, 0.75);
+    display: inline-flex;
+    border-radius: 16px;    
+    text-align: left;
+    padding: 16px;
+}
+
+#signUpForm label{
+    width: 100%;
+    text-align: left;
+}
+
+#signUpForm input, #signUpForm select{  
+    width: 100%;
+    background-color: var(--white);
+    border: 0px;
+    border-radius: 1000px;
+    padding: 4px 8px;
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+#signUpForm #addressInput{
+    border: 0px;
+}
+
+#signUpForm #addressInput optgroup{
+    text-align: left;
+}
+
+#signUpForm #addressInput option{
+    text-align: left;
+}
+
+@media screen and (min-width: 576px){
+    #heroImage1{
+        display: none;
+    }
+
+    #heroImage2{
+        display: block;
+    }
+}

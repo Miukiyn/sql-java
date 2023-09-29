@@ -1,0 +1,138 @@
+body {
+    background-color: var(--white);
+}
+
+h1{
+    color: var(--black);
+}
+
+h2{
+    width: 100%;
+    text-align: left;
+    border-bottom: 2px solid var(--black);
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: var(--secondary_color);
+}
+
+.excluirDados{
+    font-weight: bold;
+}
+
+.excluirDados:hover{
+    background-color: lightcoral;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+section{
+    width: 100%;
+    display: none;
+    min-height: 1000px;
+    padding: 16px 16px;
+}
+
+section .home{
+    display: flex;
+}
+
+
+
+.modal .modalItem .closeModalButton{
+    width: 32px;
+    margin: 0px 0px 0px auto;
+    cursor: pointer;
+}
+
+.sidebar{
+    display: none;
+    background-color: var(--secondary_color);
+    width: 50%;
+    max-width: 250px;
+    padding: 8px 0px;
+}
+
+.sidebar button{
+    width: 100%;
+    background-color: inherit;
+    padding: 8px;
+    transition: 200ms;
+}
+
+.sidebar button:hover{
+    background-color: lightgray;
+}
+
+.home .profileImage{
+    display: block;
+    width: 120px;
+    margin: 0px auto;
+    border: 4px solid var(--black);
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.preferences .editButton{
+    padding: 0px 8px;
+}
+
+
+#header{
+    background-color: var(--secondary_color);
+    display: flex;
+    padding: 8px 16px;
+}
+
+#header button{    
+    background-color: transparent;
+}
+
+#header button img{
+    width: 64px;
+}
+
+#modalMobileSidebar .sidebar{
+    display: flex;
+}
+
+#modalCadastroAnimal .modalItem{
+    width: 320px;
+    gap: 4px;
+}
+
+#modalCadastroAnimal .modalItem *{
+    text-align: left;
+}
+
+#modalCadastroAnimal .modalItem textarea{
+    width: 100%;
+}
+
+#modalCadastroAnimal #enviaDados{
+    margin: 0px auto;
+}
+
+@media screen and (min-width: 768px){
+    #header{
+        display: none;
+    }
+
+    .sidebar{
+        width: 25%;
+        display: flex;
+    }
+
+    #modalMobileSidebar .sidebar{
+        display: none;
+    }
+}

@@ -1,0 +1,3 @@
+section:nth-child(odd){
+    background-color: var(--secondary_color);
+}

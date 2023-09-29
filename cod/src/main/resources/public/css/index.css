@@ -1,0 +1,320 @@
+:root{
+    --white:            whitesmoke;
+    --black:            #252525;
+    --primary_color:    #eab563;
+    --secondary_color:  #e2cc92;
+}
+
+
+
+h1{
+    color: var(--black);
+}
+
+section{
+    padding: 32px;
+}
+
+button{
+    background-color: var(--white);
+    transition: 300ms;
+}
+
+button:hover{
+    background-color: lightblue;
+}
+
+button:disabled{
+    cursor: default;
+    background-color: gray;
+}
+
+.heroTitle{
+    color: var(--white);
+}
+
+.modal{
+    display: none;
+    opacity: 0%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: 500ms;
+    z-index: 1000;
+}
+
+.modal .modalItem{    
+    background-color: var(--white);
+    padding: 8px;
+    z-index: 100;
+}
+
+.modal .modalItem img{
+    width: 300px;
+}
+
+.modal .modalItem div{
+    width: 100%;
+}
+
+.modal .modalItem form{
+    gap: 4px;
+}
+
+.modal .modalItem form input{
+    text-align: left;
+}
+
+#modalLogin .modalItem{
+    padding: 16px;
+    background-color: var(--secondary_color);
+    border-radius: 16px;    
+}
+
+#modalLogin .modalItem form input{
+    border: 0px;
+    border-radius: 1000px;
+}
+
+#modalLogin .modalItem form button{
+    margin-top: 8px;
+}
+
+#modalMobileSidebar nav{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    height: 100%;
+    background-color: var(--white);
+    padding: 16px 0px;
+    overflow: auto;
+    z-index: 100;
+}
+
+#modalMobileSidebar .navLink{
+    width: 100%;
+    padding: 8px;
+    transition: var(--fast);
+}
+
+#modalMobileSidebar .navLink:hover{
+    background-color: var(--primary_color);
+}
+
+#modalMobileSidebar #signUpButton{
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+#modalMobileSidebar #signInButton{
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+#modalAnimalDetails .modalItem{
+    background-color: var(--secondary_color);
+    border-radius: 16px;
+    gap: 8px;
+    padding: 16px;
+}
+
+#modalAnimalDetails .modalItem img{
+    width: 200px;
+    margin: 0px auto;
+    border-radius: 16px;
+}
+
+
+#header #hero{
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#header #hero .heroImage{
+    min-width: 100%;
+    position: absolute;
+    z-index: -1;
+    filter: blur(1px);
+    object-fit: cover;
+}
+
+#header #navBar{
+    width: 100%;
+    background-color: var(--primary_color);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    row-gap: 16px;
+    text-align: center;
+    z-index: 100;
+    padding: 8px 16px;
+}
+
+#header #navBar .iconTitle{
+    width: 100%;
+    grid-column: 1 / 2;
+    grid-row: 1;
+    gap: 16px;
+}
+
+#header #navBar .iconTitle .logo{    
+    width: 50px;
+    height: 50px;    
+}
+
+#header #navBar .iconTitle h2{
+    
+}
+
+#header #navBar .buttons{
+    grid-column: 2 / 3;
+    grid-row: 1;
+    width: 100%;
+    gap: 16px;
+    display: none;
+}
+
+#header #navBar .buttons a{
+    border: 0px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--fast);
+    padding: 8px;
+}
+
+#header #navBar .buttons .signUp{
+    background-color: var(--secondary_color);
+}
+
+#header #navBar .buttons .signIn{
+    background-color: var(--secondary_color);
+}
+
+#header #navBar .navLinks{
+    width: 100%;
+    grid-column: 2 / 3;
+    grid-row: 1;
+}
+
+#header #navBar .navLinks .mobileSidebarButton{
+    display: block;
+}
+
+#header #navBar .navLinks .navLink{
+    display: none;
+    border-bottom: 2px solid transparent;
+    transition: var(--fast);
+}
+
+#header #navBar .navLinks .navLink:hover{    
+    border-bottom: 2px solid black;
+}
+
+#header #navBar .navLinks .navLink:active{    
+    border-bottom: 2px solid black;
+}
+
+#header #navBar .navLinks .navLink .icon{
+    position: relative;
+    top: 0px;
+    width: 20px;
+    height: 20px;
+    transition: var(--fast);
+    filter: invert(15%);
+}
+
+#header #navBar .navLinks .navLink:hover .icon{
+    top: -10px;
+    width: 20px;
+    height: 20px;
+}
+
+#main{
+    
+}
+
+#postedSlider, #adoptedSlider{
+    background-color: var(--secondary_color);
+    gap: 4px;
+    padding: 16px 0px;
+}
+
+#postedSlider .LrSlider .sliderWindow .sliderItem{
+    cursor: pointer;
+}
+
+#FAQ{
+    gap: 16px;
+    padding: 16px 0px;
+}
+
+#footer{
+    background-color: var(--primary_color);
+    padding: 32px;
+}
+
+
+
+/*MEDIA QUERIES*/
+@media screen and (min-width: 576px){
+    #header #navBar .iconTitle{
+        grid-row: 1;
+    }
+
+    #header #navBar .buttons{
+        display: flex;
+        grid-row: 1;
+    }
+
+    #header #navBar .navLinks{
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-content: space-between;
+    }
+
+    #header #navBar .navLinks .mobileSidebarButton{
+        display: none;
+    }
+
+    #header #navBar .navLinks .navLink{
+        display: flex;
+    }
+
+    #main #postedSlider{
+        padding: 16px 16px;
+        gap: 16px;
+    }
+
+    #FAQ{        
+        padding: 16px 64px;
+    }
+}
+
+@media screen and (min-width: 768px){        
+    
+}
+
+@media screen and (min-width: 992px){
+    #header #navBar{
+        grid-template-columns: 1fr 2fr 1fr;
+        column-gap: 16px;
+    }
+    #header #navBar .iconTitle{
+        grid-column: 1 / 2;
+        grid-row: 1;
+    }
+    #header #navBar .buttons{
+        grid-column: 3 / 4;
+        grid-row: 1;
+    }
+
+    #header #navBar .navLinks{
+        grid-column: 2 / 3;
+        grid-row: 1;
+    }
+}

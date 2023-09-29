@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Leonardo Ribeiro Andrade">
+    <meta name="description" content="Doe ou adote animais de estimação no Brasil">
+    <meta name="keywords" content="Adoção, Doação, Cachorro, Cão, Gato, Pet">
+
+    <title>Register/Login</title>
+
+    <link rel="stylesheet" href="./css/w3.css">
+    <link rel="stylesheet" href="./css/LrStyles.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/registrar.css">
+</head>
+
+<body>
+    <!--IMPLEMENTAR METODO DE LOGIN E REGISTRO AQ-->
+    <div id="modalLogin" class="modal flexCenter" onclick="LrCloseModal('modalLogin')">
+        <div class="modalItem" onclick="event.stopPropagation()">
+            <form class="flexColumnCenter">
+                <label for="userInput2">Usuário</label>
+                <input type="text" name="" id="userInput2">
+
+                <label for="passwordInput2">Senha</label>
+                <input type="text" name="" id="passwordInput2">
+                <button type="button" onclick="loginUser('userInput2', 'passwordInput2')">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="flexCenter">
+        <a id="returnButton" href="./index.html">Retornar</a>
+        <img id="heroImage2" src="./images/carameloRegister.png" alt="Cachorro caramelo">
+        <form id="signUpForm" class="flexColumnCenter" action="/usuario/insert" method="post">
+            <label for="cpfInput">CPF</label>
+            <input type="text" name="cpfInput" id="cpfInput" placeholder="000.000.000-00">
+
+            <label for="nameInput">Nome</label>
+            <input type="text" name="nameInput" id="nameInput" placeholder="Nome Completo">
+
+            <label for="emailInput">Email</label>
+            <input type="email" name="emailInput" id="emailInput" placeholder="email@example.com" minlength="8">
+
+            <label for="senhaInput">Senha</label>
+            <input type="password" name="senhaInput" id="senhaInput" placeholder="Senha">
+
+            <label for="phoneInput">Telefone</label>
+            <input type="text" name="phoneInput" id="phoneInput" placeholder="(XX) XXXX-XXXX">
+            <div class="flexcenter">
+                <button type="submit"  value="Inserir">Registrar</button>
+                <button id="signInButton" type="button" onclick="LrOpenModal('modalLogin')">Já Estou Registrado</button>
+            </div>
+        </form>
+    </section>
+
+
+    <script src="./js/LrStyles.js"></script>
+    <script src="./js/Login.js"></script>
+    <script src="./js/SignUp.js"></script>
+
+
+
+</body>
+
+</html>

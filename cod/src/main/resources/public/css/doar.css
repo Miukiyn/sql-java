@@ -1,0 +1,22 @@
+h1{
+    
+}
+
+section{
+    padding: 32px;
+}
+
+#doar{
+    background-color: var(--secondary_color);
+    flex-wrap: wrap;
+}
+
+#doar .text{
+    border-radius: 15px;
+    padding: 15px;
+    max-width: 40ch;
+}
+
+#doar .text #LrList1 .LrListItems .LrListItem:hover{
+    background-color: lightblue;
+}

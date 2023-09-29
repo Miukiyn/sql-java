@@ -1,0 +1,38 @@
+#postedSlider #filterBar{
+    width: 100%;
+}
+
+#adotar{
+    background-color: var(--white);
+    flex-wrap: wrap;
+}
+
+#adotar .text{
+    border-radius: 15px;
+    padding: 15px;
+    max-width: 40ch;
+}
+
+#adotar .text #LrList1 .LrListItems .LrListItem:hover{
+    background-color: lightblue;
+}
+
+#filterBar .w3-button{
+    background-color: lightblue;
+}
+
+#filterBar .w3-bar-item:hover{
+    transition: var(--fast);
+}
+
+#filterBar .w3-bar-item:hover{
+    background-color: lightblue;
+}
+
+#postedSlider{
+    background-color: var(--secondary_color);
+}
+
+#postedSlider .LrSlider .sliderWindow .sliderItem{
+    cursor: pointer;
+}
