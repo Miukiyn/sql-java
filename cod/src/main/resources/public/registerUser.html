@@ -19,18 +19,20 @@
 
 <body>
     <!--IMPLEMENTAR METODO DE LOGIN E REGISTRO AQ-->
-    <div id="modalLogin" class="modal flexCenter" onclick="LrCloseModal('modalLogin')">
-        <div class="modalItem" onclick="event.stopPropagation()">
-            <form class="flexColumnCenter">
-                <label for="userInput2">Usuário</label>
-                <input type="text" name="" id="userInput2">
+   <div id="modalLogin" class="modal flexCenter" onclick="LrCloseModal('modalLogin')">
+	    <div class="modalItem" onclick="event.stopPropagation()">
+	        <form class="flexColumnCenter" method="POST" action="/usuario/login">
+	            <label for="emailInput">Email</label>
+	            <input type="text" name="emailInput" id="emailInput">
+	
+	            <label for="senhaInput">Senha</label>
+	            <input type="password" name="senhaInput" id="senhaInput">
+	            <button type="submit">Entrar</button>
+	        </form>
+	    </div>
+	</div>
 
-                <label for="passwordInput2">Senha</label>
-                <input type="text" name="" id="passwordInput2">
-                <button type="button" onclick="loginUser('userInput2', 'passwordInput2')">Login</button>
-            </form>
-        </div>
-    </div>
+
 
     <section class="flexCenter">
         <a id="returnButton" href="./index.html">Retornar</a>

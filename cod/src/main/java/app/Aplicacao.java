@@ -4,14 +4,13 @@ import static spark.Spark.*;
 
 import model.Usuario;
 import service.UsuarioService;
-import spark.Request;
-import spark.Response;
 
 public class Aplicacao {
 
     private static UsuarioService usuarioService = new UsuarioService();
 
     public static void main(String[] args) {
+    	
         port(6789);
 
         staticFiles.location("/public");
@@ -38,6 +37,31 @@ public class Aplicacao {
                 return "Falha ao inserir o usuário.";
             }
         });
+        
+        
+        post("/usuario/login", (request, response) -> {
+            String email = request.queryParams("emailInput");
+            String senha = request.queryParams("senhaInput");
+
+            if (email == null || email.isEmpty() || senha == null || senha.isEmpty()) {
+                response.status(400);
+                return "Por favor, preencha todos os campos de email e senha.";
+            }
+
+            Usuario usuario = usuarioService.getUsuarioByEmailSenha(email, senha);
+
+            if (usuario != null) {
+               
+                response.status(200); 
+                response.type("application/json"); // Define o tipo de resposta como JSON
+                return "{\"nome\":\"" + usuario.getNome() + "\", \"email\":\"" + usuario.getEmail() + "\", \"telefone\":\"" + usuario.getTelefone() + "\"}";
+            } else {
+                response.status(401); // Status 401 para indicar autenticar falha
+                return "Credenciais inválidas. Por favor, verifique seu email e senha.";
+            }
+        });
+        
+
 
         get("/usuario/:cpf", (request, response) -> {
             String cpf = request.params(":cpf");

@@ -16,6 +16,10 @@ public class UsuarioService {
     public Usuario getUsuarioByCPF(String cpf) { 
         return usuarioDAO.get(cpf); 
     }
+    
+    public Usuario getUsuarioByEmailSenha(String email, String senha) { 
+        return usuarioDAO.getUsuarioByEmailSenha(email, senha); 
+    }
 
     public List<Usuario> getAllUsuarios() {
         return usuarioDAO.getAll();
