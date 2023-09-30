@@ -75,6 +75,26 @@ public class UsuarioDAO extends DAO {
         }
         return usuarios;
     }
+    
+    public Usuario getUsuarioByEmailSenha(String email, String senha) {
+                
+        String sql = "SELECT * FROM usuario WHERE email = ? AND senha = ?";
+        
+        try (PreparedStatement st = conexao.prepareStatement(sql)) {
+            st.setString(1, email);
+            st.setString(2, senha);
+            
+            try (ResultSet rs = st.executeQuery()) {
+                if (rs.next()) {
+                    return new Usuario(rs.getString("cpf"), rs.getString("nome"), rs.getString("email"), rs.getString("senha"), rs.getString("telefone"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+    }
 
 
     public boolean update(Usuario usuario) {
