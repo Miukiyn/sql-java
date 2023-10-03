@@ -12,26 +12,31 @@ import java.util.List;
 public class UsuarioDAO extends DAO {
     public UsuarioDAO() {
         super();
-        conectar();
+        conectar(); 
     }
 
     public void finalize() {
-        close();
+        close(); 
     }
 
     public boolean insert(Usuario usuario) {
         boolean status = false;
         try {
-            String sql = "INSERT INTO usuario (cpf, nome, email, senha, telefone) VALUES (?, ?, ?, ?, ?);";
-            PreparedStatement st = conexao.prepareStatement(sql);
-            st.setString(1, usuario.getCpf());
-            st.setString(2, usuario.getNome());
-            st.setString(3, usuario.getEmail());
-            st.setString(4, usuario.getSenha());
-            st.setString(5, usuario.getTelefone());
-            st.executeUpdate();
-            st.close();
-            status = true;
+            // Certifica-se de que a conexão está disponível antes de prosseguir.
+            if (conexao != null) {
+                String sql = "INSERT INTO usuario (cpf, nome, email, senha, telefone) VALUES (?, ?, ?, ?, ?);";
+                PreparedStatement st = conexao.prepareStatement(sql);
+                st.setString(1, usuario.getCpf());
+                st.setString(2, usuario.getNome());
+                st.setString(3, usuario.getEmail());
+                st.setString(4, usuario.getSenha());
+                st.setString(5, usuario.getTelefone());
+                st.executeUpdate();
+                st.close();
+                status = true;
+            } else {
+                System.err.println("Conexao nao inicializada.");
+            }
         } catch (SQLException u) {
             throw new RuntimeException(u);
         }
