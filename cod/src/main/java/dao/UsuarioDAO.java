@@ -17,7 +17,7 @@ public class UsuarioDAO extends DAO {
 
     public void finalize() {
         close(); 
-    }
+    } 
 
     public boolean insert(Usuario usuario) {
         boolean status = false;
