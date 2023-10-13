@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Leonardo Ribeiro Andrade">
+    <meta name="description" content="Doe ou adote animais de estimação no Brasil">
+    <meta name="keywords" content="Adoção, Doação, Cachorro, Cão, Gato, Pet">
+
+    <title>Register/Login</title>
+
+    <link rel="stylesheet" href="./css/w3.css">
+    <link rel="stylesheet" href="./css/LrStyles.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/registrar.css">
+    
+</head>
+
+<body>
+    <!--IMPLEMENTAR METODO DE LOGIN E REGISTRO AQ-->
+   <div id="modalLogin" class="modal flexCenter" onclick="LrCloseModal('modalLogin')">
+	    <div class="modalItem" onclick="event.stopPropagation()">
+	        <form class="flexColumnCenter" method="POST" action="/ong/login">
+	            <label for="emailInput">Email</label>
+	            <input type="text" name="emailInput" id="emailInput">
+	
+	            <label for="senhaInput">Senha</label>
+	            <input type="password" name="senhaInput" id="senhaInput">
+	            <button type="submit">Entrar</button>
+	        </form>
+	    </div>
+	</div>
+
+
+
+    <section class="flexCenter">
+        <a id="returnButton" href="/index.html">Retornar</a>
+        <img id="heroImage1" src="./images/cat-g47742c9bf_1280.jpg" alt="Gato esticando">
+        <img id="heroImage2" src="./images/ongregister.jpg" alt="Cachorro em caixa">
+        <form id="signUpForm" class="flexColumnCenter" action="/ong/insert" method="post">
+            <h1>Registro de ONG</h1>
+            <label for="siglaInput">Sigla</label>
+            <input type="text" name="siglaInput" id="siglaInput" maxlength="10">
+
+            <label for="siteLinkInput">Site Link</label>
+            <input type="text" name="siteLinkInput" id="siteLinkInput" maxlength="255">
+
+            <label for="nomeInput">Nome da ONG</label>
+            <input type="text" name="nomeInput" id="nomeInput" maxlength="255">
+
+            <label for="descricaoInput">Descrição</label>
+            <textarea name="descricaoInput" id="descricaoInput" maxlength="400" style="height: 200px; width: 350px"></textarea>
+            
+            <label for="emailInput">E-Mail</label>
+            <input type="email" name="emailInput" id="emailInput" maxlength="50">
+
+            <label for="emailComercialInput">E-Mail Comercial</label>
+            <input type="email" name="emailComercialInput" id="emailComercialInput" maxlength="50">
+
+            <label for="senhaInput">Senha</label>
+            <input type="password" name="senhaInput" id="senhaInput" maxlength="20">
+
+            <!--<label for="addressInput">Endereço</label>
+            <select id="addressInput">
+                <option value="">Cidade</option>
+                <optgroup label="Minas Gerais">                
+                    <option value="Belo Horizonte">Belo Horizonte</option>
+                    <option value="Betim">Betim</option>
+                    <option value="Brumadinho">Brumadinho</option>
+                    <option value="NovaLima">Nova Lima</option>
+                    <option value="RibeirãoDasNeves">Ribeirão Das Neves</option>
+                    <option value="SantaLuzia">Santa Luzia</option>
+                </optgroup>
+            </select>-->
+            <div class="flexcenter">
+                <button id="signUpButton" type="submit" >Registrar</button>
+                <button id="signInButton" type="button" onclick="LrOpenModal('modalLogin')">Já Estou Registrado</button>
+            </div>
+        </form>
+    </section>
+
+
+    <script src="./js/LrStyles.js"></script>
+    <script src="./js/Login.js"></script>
+    <script src="./js/SignUp.js"></script>
+    
+    
+
+
+
+</body>
+
+</html>

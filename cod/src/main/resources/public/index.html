@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Leonardo Ribeiro Andrade">
+    <meta name="description" content="Doe ou adote animais de estimação no Brasil">
+    <meta name="keywords" content="Adoção, Doação, Cachorro, Cão, Gato, Pet">
+
+    <title>Encaramelados</title>
+
+    <link rel="icon" href="./images/icons/dog-solid.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="./css/w3.css">
+    <link rel="stylesheet" href="./css/LrStyles.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <style>
+        .animalContainer {
+            width: calc(25% - 16px);
+            /* 25% para 4 elementos em uma linha, -16px para margens */
+            margin: 8px;
+        }
+
+        /* Estilos para os elementos de animais */
+        .animalItem {
+            background-color: #fff;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .animalItem img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .animalRow {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div id="modalLogin" class="modal flexCenter" onclick="LrCloseModal('modalLogin')">
+        <div class="modalItem" onclick="event.stopPropagation()">
+            <form class="flexColumnCenter">
+                <label for="userInput2">Usuário</label>
+                <input type="text" name="" id="userInput2">
+
+                <label for="passwordInput2">Senha</label>
+                <input type="text" name="" id="passwordInput2">
+                <button type="button" onclick="loginUser('userInput2', 'passwordInput2')">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalMobileSidebar" class="modal" onclick="LrCloseModal('modalMobileSidebar')">
+        <nav class="flexColumnStartCenter navLinks">
+            <a class="flexColumnCenter navLink" href="./index.html">
+                <span>Home</span>
+            </a>
+            <a class="flexColumnCenter navLink" href="./sobre.html">
+                <span>Sobre Nós</span>
+            </a>
+            <a class="flexColumnCenter navLink" href="./adotar.html">
+                <span>Quero Adotar</span>
+            </a>
+            <a class="flexColumnCenter navLink" href="./doar.html">
+                <span>Quero Doar</span>
+            </a>
+            <a class="flexColumnCenter navLink" href="https://encarameladospuc.blogspot.com/" target="_blank"
+                rel="noopener noreferrer">
+                <span>Blog</span>
+            </a>
+
+            <a id="signUpButton" class="signUp neonHover navLink" href="./registrar.html">Registrar ONG</a>
+            <a id="signInButton" class="signIn neonHover navLink" onclick="LrOpenModal('modalLogin')">Entrar</a>
+        </nav>
+    </div>
+
+    <div id="modalAnimalDetails" class="modal flexCenter" onclick="LrCloseModal('modalAnimalDetails')">
+        <div class="modalItem flexColumnStartCenter" onclick="event.stopPropagation()">
+
+        </div>
+    </div>
+
+    <header id="header">
+        <section id="navBar">
+            <div class="flexStart iconTitle">
+                <img class="logo" src="./images/icons/dog-solid.svg" alt="logo">
+                <h2>Encaramelados</h2>
+            </div>
+            <div class="flexRight buttons" ">
+            <form method=" GET" action="/alguma-rota" style="width: 200px;">
+                <iframe id="myIframe" src="http://localhost:6789/alguma-rota"
+                    style="border: none; background-color: transparent; width: 250px; height: 60px; overflow: hidden; font-family: 'Pacifico', cursive;"
+                    scrolling="no"></iframe>
+                </form>
+                <div id="buttonAddAnimal">
+                    <a id="signUpButton" class="signIn neonHover" href="./animalCadastro.html">Add Animal</a>
+                </div>
+                <div id="buttonLogout">
+                    <a id="signUpButton" class="signUp neonHover" href="./index.html">Logout</a>
+                </div>
+                <div id="buttonContainer">
+                    <a id="signUpButton" class="signUp neonHover" href="./ONGRegister.html">ONG</a>
+                    <a id="signInButton" class="signIn neonHover" href="./registerUser.html">Usuario</a>
+                </div>
+            </div>
+            <nav class="navLinks" style="display: flex; justify-content: center; align-items: center;">
+                <button class="w3-button mobileSidebarButton"
+                    onclick="LrOpenModal('modalMobileSidebar')">&#9776;</button>
+                <a class="navLink" href="./index.html"><span>Home</span></a>
+                <a class="navLink" href="./doar.html" style="margin: 0 15px;"><span>Anuncie</span></a>
+                <a class="navLink" href="./adotar.html" style="margin: 0 15px;"><span>Animais</span></a>
+                <a class="navLink" href="./sobre.html"><span>Sobre</span></a>
+            </nav>
+
+        </section>
+    </header>
+
+
+    <main id="main">
+
+        <div class="w3-content w3-display-container">
+            <div class="centerImage">
+                <img class="mySlides" src="./images/icons/petshop1.png" alt="Cachorro 1"
+                    style="max-width: 50%; height: auto;">
+                <img class="mySlides" src="./images/icons/petshop2.png" alt="Cachorro 2"
+                    style="max-width: 50%; height: auto;">
+                <img class="mySlides" src="./images/icons/petshop3.jpeg" alt="Cachorro 3"
+                    style="max-width: 50%; height: auto;">
+            </div>
+
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+        <style>
+            .carrosselSection {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px 0;
+            }
+
+            .centerImage {
+                display: flex;
+                justify-content: center;
+                /* Centralize horizontalmente */
+                align-items: center;
+                /* Centralize verticalmente */
+                flex-direction: column;
+                /* Alinhe as imagens em coluna */
+            }
+
+            .carrosselContainer {
+                max-width: 100%;
+            }
+
+            .mySlides {
+                width: 100%;
+                max-height: 300px;
+                object-fit: cover;
+            }
+        </style>
+        <script>
+            var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+                showDivs(slideIndex += n);
+            }
+
+            function showDivs(n) {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                if (n > x.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = x.length }
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                x[slideIndex - 1].style.display = "block";
+            }
+        </script>
+
+        <section id="postedSlider" class="flexColumnCenter">
+
+
+            <div class="flexCenter">
+                <h2 class="title">Disponiveis Para Adoção</h2>
+            </div>
+
+
+            <div class="flexCenter LrSlider">
+
+                <div class="sliderWindow">
+                    <div class="animalRow sliderItemsContainer">
+                        <!-- Aqui serão exibidos os animais -->
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section id="FAQ" class="flexColumnCenter">
+            <h2>FAQ</h2>
+            <div id="LrAccordion1" class="LrAccordion">
+                <button class="LrAccordionButton" onclick="openAccordion(1)">Como adotar um pet</button>
+                <p class="LrAccordionItem">
+                    -Clique em quero adotar
+                    <br>
+                    -Veja as ONGS disponíveis. (É possível ver as ONGS mais próximas de você);
+                    <br>
+                    -Entre em contato com a ONG escolhida;
+                    <br>
+                    Você consegue ver no site os animais disponíveis nessa ONG.Mas se preferir pode optar por conhecer
+                    os animais disponíveis na própria ONG, basta ligar e marcar uma visita.
+                </p>
+            </div>
+            <div id="LrAccordion2" class="LrAccordion">
+                <button class="LrAccordionButton" onclick="openAccordion(2)">Como doar um pet</button>
+                <p class="LrAccordionItem">
+                    -Clique em quero doar;
+                    <br>
+                    -Veja as ONGS disponíveis. (É possível ver as ONGS mais próximas de você);
+                    <br>
+                    - Entre em contato com a ONG escolhida e veja se ela tem disponibilidade para receber o pet.
+                </p>
+            </div>
+            <div id="LrAccordion3" class="LrAccordion">
+                <button class="LrAccordionButton" onclick="openAccordion(3)">Onde posso encontrar ONG's</button>
+                <p class="LrAccordionItem">
+                    1° FORMA
+                    <br>
+                    -Entre na pagina quero adotar ou quero doar
+                    <br>
+                    -Procure pelas regiões de Minas Gerais. Dessa forma, você consegue achar as ONGS mais próximas de
+                    você.
+                    <br>
+                    <br>
+                    2° FORMA
+                    <br>
+                    -Vá para a página inicial do site, onde se encontram os animais disponíveis;
+                    <br>
+                    -Abaixo de cada foto tem-se o nome da ONG e seu endereço.
+                    <br>
+                    <br>
+                    3° FORMA
+                    <br>
+                    -Acesse nosso Blog. Nele você consegue conversar com outros usuários do site e trocar informações
+                    sobre suas experiências.
+                </p>
+            </div>
+            <div id="LrAccordion4" class="LrAccordion">
+                <button class="LrAccordionButton" onclick="openAccordion(4)">Preciso pagar algo?</button>
+                <p class="LrAccordionItem">Não, todo o trabalho é voluntario sem necessidade nenhuma de pagar a adoção.
+                </p>
+            </div>
+        </section>
+
+        <section id="blog">
+
+        </section>
+
+    </main>
+
+    <footer id="footer" class="flexCenter">
+        <p>PUC Minas - São Gabriel (2022)</p>
+    </footer>
+
+
+    <script src="./js/Login.js"></script>
+
+    <script src="./js/loginDadosBD.js"></script>
+
+
+    <script>
+
+        
+        fetch("/animais")
+            .then(response => response.json())
+            .then(data => {
+                // Manipule os dados e exiba os animais na página
+                const container = document.querySelector('.sliderItemsContainer');
+                data.forEach(animal => {
+                    const animalContainer = document.createElement('div');
+                    animalContainer.className = 'animalContainer';
+
+                    const animalItem = document.createElement('div');
+                    animalItem.className = 'animalItem';
+                    animalItem.innerHTML = `
+                            <img src="${animal.fotoURL}" alt="${animal.nome}">
+                            <h3>${animal.nome}</h3>
+                            <p><strong>Raça:</strong> ${animal.raca}</p>
+                            <p><strong>Espécie:</strong> ${animal.especie}</p>
+                            <p><strong>Descrição:</strong> ${animal.descricao}</p>
+                            <p><strong>Característica:</strong> ${animal.caracteristica}</p>
+                            <p><strong>Tamanho:</strong> ${animal.tamanho}</p>
+                            <p><strong>Estado:</strong> ${animal.estado}</p>
+                            <p><strong>Cidade:</strong> ${animal.cidade}</p>
+                                   					                   
+                        `;
+                    animalContainer.appendChild(animalItem);
+                    container.appendChild(animalContainer);
+                });
+
+            })
+            .catch(error => console.error('Erro ao buscar animais:', error));
+    </script>
+
+
+
+
+
+
+</body>
+
+</htm>

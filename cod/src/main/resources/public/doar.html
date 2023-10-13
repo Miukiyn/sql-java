@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Leonardo Ribeiro Andrade">
+    <meta name="description" content="Doe ou adote animais de estimação no Brasil">
+    <meta name="keywords" content="Adoção, Doação, Cachorro, Cão, Gato, Pet">
+    
+    <title>Encaramelados</title>    
+
+    <link rel="icon" href="./images/icons/dog-solid.ico">
+    
+    <link rel="stylesheet" href="./css/w3.css">
+    <link rel="stylesheet" href="./css/LrStyles.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/doar.css">    
+</head>
+<body>
+    <div id="modalLogin" class="modal flexCenter" onclick="LrCloseModal('modalLogin')">
+        <div class="modalItem" onclick="event.stopPropagation()">
+            <form class="flexColumnCenter">
+                <label for="userInput2">Usuário</label>
+                <input type="text" name="" id="userInput2">
+
+                <label for="passwordInput2">Senha</label>
+                <input type="text" name="" id="passwordInput2">
+                <button type="button" onclick="loginUser('userInput2', 'passwordInput2')">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalMobileSidebar" class="modal" onclick="LrCloseModal('modalMobileSidebar')">
+        <nav class="flexColumnStartCenter navLinks">
+            <a class="flexColumnCenter navLink" href="./index.html">
+                <span>Home</span>
+            </a>
+            <a class="flexColumnCenter navLink" href="./sobre.html">
+                <span>Sobre Nós</span>
+            </a>
+            <a class="flexColumnCenter navLink" href="./adotar.html">
+                <span>Quero Adotar</span>
+            </a>
+            <a class="flexColumnCenter navLink" href="./doar.html">
+                <span>Quero Doar</span>
+            </a>
+            <a class="flexColumnCenter navLink" href="https://encarameladospuc.blogspot.com/" target="_blank" rel="noopener noreferrer">
+                <span>Blog</span>
+            </a>
+
+            <a id="signUpButton" class="signUp neonHover navLink" href="./registrar.html">Registrar ONG</a>
+            <a id="signInButton" class="signIn neonHover navLink" onclick="LrOpenModal('modalLogin')">Entrar</a>
+        </nav>
+    </div>
+
+    <header id="header">
+    <section id="navBar">
+        <div class="flexStart iconTitle">
+            <img class="logo" src="./images/icons/dog-solid.svg" alt="logo">
+            <h2>Encaramelados</h2>
+        </div>
+        <div class="flexRight buttons" ">
+            <form method="GET" action="/alguma-rota" style="width: 200px;">
+                <iframe id="myIframe" src="http://localhost:6789/alguma-rota" style="border: none; background-color: transparent; width: 250px; height: 60px; overflow: hidden; font-family: 'Pacifico', cursive;" scrolling="no"></iframe>
+            </form>
+            <div id="buttonAddAnimal">
+                <a id="signUpButton" class="signUp neonHover" href="./animalCadastro.html">Add Animal</a>
+            </div>
+            <div id="buttonLogout">
+                <a id="signUpButton" class="signUp neonHover" href="./index.html">Logout</a>
+            </div>
+            <div id="buttonContainer">
+                <a id="signUpButton" class="signUp neonHover" href="./ONGRegister.html">ONG</a>
+                <a id="signInButton" class="signIn neonHover" href="./registerUser.html">Usuario</a>
+            </div>
+        </div>
+        <nav class="navLinks" style="display: flex; justify-content: center; align-items: center;">
+    <button class="w3-button mobileSidebarButton" onclick="LrOpenModal('modalMobileSidebar')">&#9776;</button>
+    <a class="navLink" href="./index.html"><span>Home</span></a>
+    <a class="navLink" href="./doar.html" style="margin: 0 15px;"><span>Anuncie</span></a>
+    <a class="navLink" href="./adotar.html" style="margin: 0 15px;"><span>Animais</span></a>
+    <a class="navLink" href="./sobre.html"><span>Sobre</span></a>
+</nav>
+
+    </section>
+</header>
+
+    <main id="main">
+
+        <section id="doar" class="flexSpaceEvenly">
+            <iframe id="LrGoogleMap1" class="LrGoogleMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d240097.4951007802!2d-44.10413853412264!3d-19.902338635123137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa690cacacf2c33%3A0x5b35795e3ad23997!2sBelo%20Horizonte%2C%20MG!5e0!3m2!1spt-BR!2sbr!4v1653248081753!5m2!1spt-BR!2sbr"
+            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="text">
+                <h2>Não os abandone. Deixe-os aos cuidados de uma ONG confiável</h2>
+                <p>Basta procurar no mapa ao lado por uma ONG próxima e contatálos sobre a situação</p>
+                <div id="LrList1" class="LrList flexColumnCenter">
+                    <input class="LrSearchInput" type="text" placeholder="Ex: Belo Horizonte" onkeyup="LrListSort('LrList1',event.key)">
+                    <ul class="LrListItems">
+                        <li class="LrListItem BELOHORIZONTE" onclick="LrGoogleMapGoTo('1', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d240097.4951007802!2d-44.10413853412264!3d-19.902338635123137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa690cacacf2c33%3A0x5b35795e3ad23997!2sBelo%20Horizonte%2C%20MG!5e0!3m2!1spt-BR!2sbr!4v1653248081753!5m2!1spt-BR!2sbr')">ONG (em Belo Horizonte)</li>
+                        <li class="LrListItem BETIM" onclick="LrGoogleMapGoTo('1', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d240037.67580596454!2d-44.33239168018213!3d-19.941730475169656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6c24a5fb01f9b%3A0xdae51d9facff118f!2sBetim%2C%20MG!5e0!3m2!1spt-BR!2sbr!4v1653258859011!5m2!1spt-BR!2sbr')">ONG (em Betim)</li>
+                        <li class="LrListItem BRUMADINHO" onclick="LrGoogleMapGoTo('1', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59930.20053278999!2d-44.28886505494616!3d-20.149164003800454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6cdbaf09cbc8d%3A0x1978fa76715f9eaf!2sBrumadinho%2C%20MG%2C%2035460-000!5e0!3m2!1spt-BR!2sbr!4v1653259346727!5m2!1spt-BR!2sbr')">ONG (em Brumadinho)</li>
+                        <li class="LrListItem NOVALIMA" onclick="LrGoogleMapGoTo('1', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d239896.09325946565!2d-44.046900470860294!3d-20.034668502702505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6a30042cd1f59%3A0xa317953d89263640!2sNova%20Lima%2C%20MG!5e0!3m2!1spt-BR!2sbr!4v1653259701510!5m2!1spt-BR!2sbr')">ONG (em Nova Lima)</li>
+                        <li class="LrListItem RIBEIRÃODASNEVES" onclick="LrGoogleMapGoTo('1', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120136.1150984521!2d-44.14158790806881!3d-19.786842279684848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa68d65ce6647bb%3A0xf6b57930a4c07785!2sRibeir%C3%A3o%20das%20Neves%2C%20MG!5e0!3m2!1spt-BR!2sbr!4v1653259668842!5m2!1spt-BR!2sbr')">ONG (em Ribeirão Das Neves)</li>
+                        <li class="LrListItem SANTALUZIA" onclick="LrGoogleMapGoTo('1', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d240363.42875873225!2d-43.991073101655566!3d-19.726304132733016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa680bee4750f7f%3A0xe6c83b9292d7eea0!2sSanta%20Luzia%20-%20MG!5e0!3m2!1spt-BR!2sbr!4v1653259622856!5m2!1spt-BR!2sbr')">ONG (em Santa Luzia)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="FAQ" class="flexColumnCenter">
+            <h2>FAQ</h2>
+            <div id="LrAccordion1" class="LrAccordion">
+                <button class="LrAccordionButton" onclick="openAccordion(1)">Como doar um pet?</button>
+                <p class="LrAccordionItem">TESTE</p>
+            </div>
+            <div id="LrAccordion2" class="LrAccordion">
+                <button class="LrAccordionButton" onclick="openAccordion(2)">Para quem vai o meu pet?</button>
+                <p class="LrAccordionItem">TESTE</p>
+            </div>
+            <div id="LrAccordion3" class="LrAccordion">
+                <button class="LrAccordionButton" onclick="openAccordion(3)">Onde posso encontrar ONG's?</button>
+                <p class="LrAccordionItem">TESTE</p>
+            </div>
+            <div id="LrAccordion4" class="LrAccordion">
+                <button class="LrAccordionButton" onclick="openAccordion(4)">Preciso pagar algo?</button>
+                <p class="LrAccordionItem">TESTE</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer" class="flexCenter">
+        <p>PUC Minas - São Gabriel (2022)</p>
+    </footer>
+
+    <script src="./js/LrStyles.js"></script>
+    <script src="./js/Login.js"></script>
+    <script src="./js/loginDadosBD.js"></script>
+</body>
+</html>
