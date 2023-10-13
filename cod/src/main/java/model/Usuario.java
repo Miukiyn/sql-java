@@ -75,6 +75,14 @@ public class Usuario {
 
     @Override
     public boolean equals(Object obj) {
-        return this.getCpf().equals(((Usuario) obj).getCpf());
+        if (this == obj) {
+            return true; // Mesma instância
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false; // Verifica se o objeto é nulo ou não é uma instância de Usuario
+        }
+        Usuario other = (Usuario) obj;
+        return this.getCpf().equals(other.getCpf());
     }
+
 }

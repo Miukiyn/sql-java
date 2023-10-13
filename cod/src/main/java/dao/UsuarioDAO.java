@@ -2,6 +2,7 @@ package dao;
 
 import model.Usuario;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -88,6 +89,26 @@ public class UsuarioDAO extends DAO {
         try (PreparedStatement st = conexao.prepareStatement(sql)) {
             st.setString(1, email);
             st.setString(2, senha);
+            
+            try (ResultSet rs = st.executeQuery()) {
+                if (rs.next()) {
+                    return new Usuario(rs.getString("cpf"), rs.getString("nome"), rs.getString("email"), rs.getString("senha"), rs.getString("telefone"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+    }
+    
+    public Usuario getUsuarioLoged(String email, String nome, String telefone) {
+        String sql = "SELECT * FROM usuario WHERE email = ? AND nome = ? AND telefone = ?";
+        
+        try (PreparedStatement st = conexao.prepareStatement(sql)) {
+            st.setString(1, email);
+            st.setString(2, nome);
+            st.setString(3, telefone);
             
             try (ResultSet rs = st.executeQuery()) {
                 if (rs.next()) {

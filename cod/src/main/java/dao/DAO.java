@@ -3,7 +3,7 @@ package dao;
 import java.sql.*;
 
 public class DAO {
-	protected Connection conexao;
+	protected static Connection conexao;
 	
 	public DAO() {
 		conexao = null;
@@ -11,12 +11,12 @@ public class DAO {
 	
 	public boolean conectar() {
 		String driverName = "org.postgresql.Driver";								// Nome do Driver                 
-		String serverName = ""; 			// Nome do server
-		String mydatabase = ""; 										// Nome do banco de dados
+		String serverName = "encaramelados.postgres.database.azure.com";		// Nome do server
+		String mydatabase = "encaramelados"; 										// Nome do banco de dados
 		int porta = 5432;
 		String url = "jdbc:postgresql://" + serverName + ":" + porta +"/" + mydatabase;
-		String username = ""; 									// Nome do "admistrador"
-		String password = ""; 											// Senha para acessar a conta do "admistrador"
+		String username = "AdminPG@encaramelados"; 									// Nome do "admistrador"
+		String password = "PassAdmin2"; 											// Senha para acessar a conta do "admistrador"
 		boolean status = false;
 
 		try {
